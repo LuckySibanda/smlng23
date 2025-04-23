@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Express Delivery | SMILING23</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f4;
+    }
+    header {
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.3rem 0.6rem;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background-color: #333;
+      border-radius: 5px;
+    }
+    .search-bar {
+      margin: 1rem auto;
+      max-width: 600px;
+      display: flex;
+      justify-content: center;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      outline: none;
+    }
+    .hero {
+      background: url('') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .delivery-info {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .delivery-info h3 {
+      color: #333;
+      margin-top: 0;
+    }
+    .delivery-info p {
+      color: #555;
+      line-height: 1.6;
+    }
+    .delivery-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 2rem;
+    }
+    .option-card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .option-card h3 {
+      color: #000;
+    }
+    .option-card .price {
+      font-weight: bold;
+      color: #000;
+      margin: 10px 0;
+      font-size: 1.2rem;
+    }
+    .option-card button {
+      background: #000;
+      color: white;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    footer {
+      background-color: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav a {
+        margin: 5px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">SMILING23</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="wine.html">Wine</a>
+      <a href="whisky.html">Whisky</a>
+      <a href="beer-cider.html">Beer & Cider</a>
+      <a href="spirits.html">Spirits</a>
+      <a href="bubbles.html">Bubbles</a>
+      <a href="mixers.html">Mixers</a>
+      <a href="express-delivery.html">Express Delivery</a>
+      <a href="accessories-gifts.html">Accessories & Gifts</a>
+      <a href="promotions.html">Promotions</a>
+<a href="cart.html">
+    Cart (<span class="cart-count">0</span>)
+</a>
+    </nav>
+  </header>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Search for delivery options..." />
+  </div>
+
+  <section class="hero">
+    <h2>Express Delivery Service</h2>
+    <p>Get your favorite drinks delivered fast</p>
+  </section>
+
+  <section class="delivery-info">
+    <h3>Fast & Reliable Delivery</h3>
+    <p>We offer express delivery services to get your favorite beverages to your door as quickly as possible. Our delivery team ensures your order arrives safely and on time.</p>
+    <p>Delivery areas: Johannesburg, Pretoria, Cape Town, Durban (within city limits)</p>
+    <p>Minimum order: R300 | Delivery fee: R50 (free for orders over R1000)</p>
+  </section>
+
+  <section class="delivery-options">
+    <div class="option-card">
+      <h3>Standard Delivery</h3>
+      <p>Delivery within 24 hours</p>
+      <div class="price">R50</div>
+      <button>Order Now</button>
+    </div>
+    <div class="option-card">
+      <h3>Express Delivery</h3>
+      <p>Delivery within 2 hours</p>
+      <div class="price">R100</div>
+      <button>Order Now</button>
+    </div>
+    <div class="option-card">
+      <h3>Premium Delivery</h3>
+      <p>Delivery within 1 hour</p>
+      <div class="price">R150</div>
+      <button>Order Now</button>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 SMILING23. All rights reserved | <a href="#" style="color:#fff;">Privacy Policy</a> | <a href="#" style="color:#fff;">Terms</a>
+  </footer>
+
+</body>
+</html>

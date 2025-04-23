@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Whisky Collection | SMILING23</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f4;
+    }
+    header {
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.3rem 0.6rem;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background-color: #333;
+      border-radius: 5px;
+    }
+    .search-bar {
+      margin: 1rem auto;
+      max-width: 600px;
+      display: flex;
+      justify-content: center;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      outline: none;
+    }
+    .hero {
+      background: url('') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 2rem;
+    }
+    .product-card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .product-card h3 {
+      margin: 10px 0;
+    }
+    .product-card p {
+      color: #555;
+    }
+    .product-card .price {
+      font-weight: bold;
+      color: #000;
+      margin: 10px 0;
+    }
+    .product-card button {
+      background: #000;
+      color: white;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav a {
+        margin: 5px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">SMILING23</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="wine.html">Wine</a>
+      <a href="whisky.html">Whisky</a>
+      <a href="beer-cider.html">Beer & Cider</a>
+      <a href="spirits.html">Spirits</a>
+      <a href="bubbles.html">Bubbles</a>
+      <a href="mixers.html">Mixers</a>
+      <a href="express-delivery.html">Express Delivery</a>
+      <a href="accessories-gifts.html">Accessories & Gifts</a>
+      <a href="promotions.html">Promotions</a>
+<a href="cart.html">
+    Cart (<span class="cart-count">0</span>)
+</a>
+    </nav>
+  </header>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Search our whisky selection..." />
+  </div>
+
+  <section class="hero">
+    <h2>Premium Whisky Selection</h2>
+    <p>Explore our collection of fine Scotch, Irish, and Bourbon whiskies</p>
+  </section>
+
+  <section class="products">
+    <div class="product-card">
+      <img src="" alt="Single Malt Whisky">
+      <h3>Single Malt Scotch</h3>
+      <p>Aged 12 years</p>
+      <div class="price">R799.99</div>
+      <button onclick="addToCart(
+  'product-1', 
+  'Amarula Gin 750ml', 
+  260.00, 
+  'photo_2025-04-21_20-45-14.jpg'
+)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="" alt="Bourbon Whiskey">
+      <h3>Kentucky Bourbon</h3>
+      <p>Small batch reserve</p>
+      <div class="price">R599.99</div>
+      <button onclick="addToCart(
+  'product-1', 
+  'Amarula Gin 750ml', 
+  260.00, 
+  'photo_2025-04-21_20-45-14.jpg'
+)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="" alt="Irish Whiskey">
+      <h3>Irish Whiskey</h3>
+      <p>Triple distilled</p>
+      <div class="price">R649.99</div>
+      <button onclick="addToCart(
+  'product-1', 
+  'Amarula Gin 750ml', 
+  260.00, 
+  'photo_2025-04-21_20-45-14.jpg'
+)">Add to Cart</button>
+    </div>
+
+  </section>
+
+  <footer>
+    &copy; 2025 SMILING23. All rights reserved | <a href="#" style="color:#fff;">Privacy Policy</a> | <a href="#" style="color:#fff;">Terms</a>
+  </footer>
+
+<script>
+  // Initialize cart and wishlist if they don't exist
+  if (!localStorage.getItem('cart')) {
+    localStorage.setItem('cart', JSON.stringify([]));
+  }
+  if (!localStorage.getItem('wishlist')) {
+    localStorage.setItem('wishlist', JSON.stringify([]));
+  }
+
+  // Add to Cart function
+  function addToCart(productId, productName, price, image) {
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    const existingItem = cart.find(item => item.id === productId);
+
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cart.push({
+        id: productId,
+        name: productName,
+        price: price,
+        image: image,
+        quantity: 1
+      });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${productName} added to cart!`);
+    updateCartCount();
+  }
+
+  // Update cart count in navbar
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    document.querySelector('.cart-count').textContent = totalItems;
+  }
+
+  // Initialize cart count on page load
+  document.addEventListener('DOMContentLoaded', updateCartCount);
+</script>
+</body>
+</html>

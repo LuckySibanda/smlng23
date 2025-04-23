@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart | SMILING23</title>
+    <title>Your Cart | SMILING23</title>
+
+    <style>
+* {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f4;
+    }
+    header {
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.3rem 0.6rem;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background-color: #333;
+      border-radius: 5px;
+    }
+    .search-bar {
+      margin: 1rem auto;
+      max-width: 600px;
+      display: flex;
+      justify-content: center;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      outline: none;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1606756797483-4ba0f8fefab9') no-repeat center center/cover;
+      color: black;
+      text-align: center;
+      padding: 120px 20px;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 2rem;
+    }
+    .product-card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .product-card h3 {
+      margin: 10px 0;
+    }
+    .product-card p {
+      color: #555;
+    }
+    .product-card .price {
+      font-weight: bold;
+      color: #000;
+      margin: 10px 0;
+    }
+    .product-card button {
+      background: #000;
+      color: white;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav a {
+        margin: 5px 0;
+      }
+    }
+        .cart-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+        .cart-item {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            padding: 1rem 0;
+        }
+        .cart-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+        .cart-summary {
+            background: #f9f9f9;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+        .remove-item {
+            color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">SMILING23</div>
+    <nav>
+  <a href="index.html">Home</a>
+  <a href="wine.html">Wine</a>
+  <a href="whisky.html">Whisky</a>
+  <a href="beer-cider.html">Beer & Cider</a>
+  <a href="spirits.html">Spirits</a>
+  <a href="bubbles.html">Bubbles</a>
+  <a href="mixers.html">Mixers</a>
+  <a href="express-delivery.html">Express Delivery</a>
+  <a href="accessories-gifts.html">Accessories & Gifts</a>
+  <a href="promotions.html">Promotions</a>
+</nav>
+  </header>
+    
+    <div class="cart-container">
+        <h1>Your Shopping Cart</h1>
+        <div id="cart-items">
+            <!-- Items will load here via JavaScript -->
+        </div>
+        
+        <div class="cart-summary">
+            <h3>Order Summary</h3>
+            <p>Subtotal: R<span id="subtotal">0.00</span></p>
+            <button onclick="checkout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Cart JavaScript -->
+    <script>
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsEl = document.getElementById('cart-items');
+            let subtotal = 0;
+
+            if (cart.length === 0) {
+                cartItemsEl.innerHTML = '<p>Your cart is empty.</p>';
+                return;
+            }
+
+            cartItemsEl.innerHTML = cart.map(item => {
+                subtotal += item.price * item.quantity;
+                return `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}">
+                        <div>
+                            <h3>${item.name}</h3>
+                            <p>R${item.price.toFixed(2)} × ${item.quantity}</p>
+                            <p>R${(item.price * item.quantity).toFixed(2)}</p>
+                            <span class="remove-item" onclick="removeFromCart('${item.id}')">Remove</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('subtotal').textContent = subtotal.toFixed(2);
+        }
+
+        function removeFromCart(productId) {
+            let cart = JSON.parse(localStorage.getItem('cart'));
+            cart = cart.filter(item => item.id !== productId);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+            updateCartCount();
+        }
+
+        function checkout() {
+            alert('Proceeding to checkout!');
+            // In a real app, redirect to payment page
+        }
+
+
+        document.addEventListener('DOMContentLoaded', loadCart);
+    </script>
+</body>
+</html>
